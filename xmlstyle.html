@@ -1,0 +1,638 @@
+<style type="text/css">
+/* default css */
+table {
+font-size: 1em;
+line-height: inherit;
+}
+tr {
+text-align: left;
+}
+div, address, ol, ul, li, option, select {
+margin-top: 0px;
+margin-bottom: 0px;
+}
+p {
+margin: 0px;
+}
+body {
+margin: 6px;
+padding: 0px;
+font-family: Verdana, sans-serif;
+font-size: 10pt;
+background-color: #ffffff;
+}
+img {
+-moz-force-broken-image-icon: 1;
+}
+@media screen {
+html.pageview {
+background-color: #f3f3f3 !important;
+}
+body {
+min-height: 1100px;
+counter-reset: __goog_page__;
+}
+* html body {
+height: 1100px;
+}
+.pageview body {
+border-top: 1px solid #ccc;
+border-left: 1px solid #ccc;
+border-right: 2px solid #bbb;
+border-bottom: 2px solid #bbb;
+width: 648px !important;
+margin: 15px auto 25px;
+padding: 40px 50px;
+}
+/* IE6 */
+* html {
+overflow-y: scroll;
+}
+* html.pageview body {
+overflow-x: auto;
+}
+/* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+html*#wys_frame::before {
+content: '\A0';
+position: fixed;
+overflow: hidden;
+width: 0;
+height: 0;
+top: 0;
+left: 0;
+}
+.writely-callout-data {
+display: none;
+*display: inline-block;
+*width: 0;
+*height: 0;
+*overflow: hidden;
+}
+.writely-footnote-marker {
+background-image: url('images/footnote_doc_icon.gif');
+background-color: transparent;
+background-repeat: no-repeat;
+width: 7px;
+overflow: hidden;
+height: 16px;
+vertical-align: top;
+-moz-user-select: none;
+}
+.editor .writely-footnote-marker {
+cursor: move;
+}
+.writely-footnote-marker-highlight {
+background-position: -15px 0;
+-moz-user-select: text;
+}
+.writely-footnote-hide-selection ::-moz-selection, .writely-footnote-hide-selection::-moz-selection {
+background: transparent;
+}
+.writely-footnote-hide-selection ::selection, .writely-footnote-hide-selection::selection {
+background: transparent;
+}
+.writely-footnote-hide-selection {
+cursor: move;
+}
+.editor .writely-comment-yellow {
+background-color: #FF9;
+background-position: -240px 0;
+}
+.editor .writely-comment-yellow-hover {
+background-color: #FF0;
+background-position: -224px 0;
+}
+.editor .writely-comment-blue {
+background-color: #C0D3FF;
+background-position: -16px 0;
+}
+.editor .writely-comment-blue-hover {
+background-color: #6292FE;
+background-position: 0 0;
+}
+.editor .writely-comment-orange {
+background-color: #FFDEAD;
+background-position: -80px 0;
+}
+.editor .writely-comment-orange-hover {
+background-color: #F90;
+background-position: -64px 0;
+}
+.editor .writely-comment-green {
+background-color: #99FBB3;
+background-position: -48px 0;
+}
+.editor .writely-comment-green-hover {
+background-color: #00F442;
+background-position: -32px 0;
+}
+.editor .writely-comment-cyan {
+background-color: #CFF;
+background-position: -208px 0;
+}
+.editor .writely-comment-cyan-hover {
+background-color: #0FF;
+background-position: -192px 0;
+}
+.editor .writely-comment-purple {
+background-color: #EBCCFF;
+background-position: -144px 0;
+}
+.editor .writely-comment-purple-hover {
+background-color: #90F;
+background-position: -128px 0;
+}
+.editor .writely-comment-magenta {
+background-color: #FCF;
+background-position: -112px 0;
+}
+.editor .writely-comment-magenta-hover {
+background-color: #F0F;
+background-position: -96px 0;
+}
+.editor .writely-comment-red {
+background-color: #FFCACA;
+background-position: -176px 0;
+}
+.editor .writely-comment-red-hover {
+background-color: #FF7A7A;
+background-position: -160px 0;
+}
+.editor .writely-comment-marker {
+background-image: url('images/markericons_horiz.gif');
+background-color: transparent;
+padding-right: 11px;
+background-repeat: no-repeat;
+width: 16px;
+height: 16px;
+-moz-user-select: none;
+}
+.editor .writely-comment-hidden {
+padding: 0;
+background: none;
+}
+.editor .writely-comment-marker-hidden {
+background: none;
+padding: 0;
+width: 0;
+}
+.editor .writely-comment-none {
+opacity: .2;
+filter:progid:DXImageTransform.Microsoft.Alpha(opacity=20);
+-moz-opacity: .2;
+}
+.editor .writely-comment-none-hover {
+opacity: .2;
+filter:progid:DXImageTransform.Microsoft.Alpha(opacity=20);
+-moz-opacity: .2;
+}
+.br_fix br:not(:-moz-last-node):not(:-moz-first-node) {
+position:relative;
+left: -1ex
+}
+.br_fix br+br {
+position: static !important
+}
+}
+h6 { font-size: 8pt }
+h5 { font-size: 8pt }
+h4 { font-size: 10pt }
+h3 { font-size: 12pt }
+h2 { font-size: 14pt }
+h1 { font-size: 18pt }
+blockquote {padding: 10px; border: 1px #DDD dashed }
+a img {border: 0}
+.pb {
+border-width: 0;
+page-break-after: always;
+/* We don't want this to be resizeable, so enforce a width and height
+using !important */
+height: 1px !important;
+width: 100% !important;
+}
+.editor .pb {
+border-top: 1px dashed #C0C0C0;
+border-bottom: 1px dashed #C0C0C0;
+}
+div.google_header, div.google_footer {
+position: relative;
+margin-top: 1em;
+margin-bottom: 1em;
+}
+/* Table of contents */
+.editor div.writely-toc {
+background-color: #f3f3f3;
+border: 1px solid #ccc;
+}
+.writely-toc > ol {
+padding-left: 3em;
+font-weight: bold;
+}
+ol.writely-toc-subheading {
+padding-left: 1em;
+font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+list-style-position: inside;
+}
+.writely-toc-none {
+list-style-type: none;
+}
+.writely-toc-decimal {
+list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+list-style-type: lower-roman;
+}
+.writely-toc-disc {
+list-style-type: disc;
+}
+/* Ordered lists converted to numbered lists can preserve ordered types, and
+vice versa. This is confusing, so disallow it */
+ul[type="i"], ul[type="I"], ul[type="1"], ul[type="a"], ul[type="A"] {
+list-style-type: disc;
+}
+ol[type="disc"], ol[type="circle"], ol[type="square"] {
+list-style-type: decimal;
+}
+/* end default css */
+/* custom css */
+/* end custom css */
+/* ui edited css */
+body {
+font-family: Verdana;
+font-size: 10.0pt;
+line-height: normal;
+background-color: #ffffff;
+}
+/* end ui edited css */
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+.editor div.google_header, .editor div.google_footer {
+border: 2px #DDDDDD dashed;
+position: static;
+width: 100%;
+min-height: 2em;
+}
+.editor .misspell {background-color: yellow}
+.editor .writely-comment {
+font-size: 9pt;
+line-height: 1.4;
+padding: 1px;
+border: 1px dashed #C0C0C0
+}
+/* end editor CSS */
+</style>
+<style>
+body {
+margin: 0px;
+}
+#doc-contents {
+margin: 6px;
+}
+#google-view-footer {
+clear: both;
+border-top: thin solid;
+padding-top: 0.3em;
+padding-bottom: 0.3em;
+}
+a.google-small-link:link, a.google-small-link:visited {
+color:#112ABB;
+font-family:Arial,Sans-serif;
+font-size:11px !important;
+}
+body, p, div, td {
+direction: inherit;
+}
+@media print {
+#google-view-footer {
+display: none;
+}
+}
+</style>
+<script>
+function viewOnLoad() {
+if (document.location.href.indexOf('spi=1') != -1) {
+if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
+window.print();
+} else {
+window.setTimeout(window.print, 10);
+}
+}
+if (document.location.href.indexOf('hgd=1') != -1) {
+var footer = document.getElementById("google-view-footer");
+if (footer) {
+footer.style.display = 'none';
+}
+}
+}
+</script>
+</head>
+<body>
+<div id="doc-contents">
+<div>
+
+<h1 style="text-align: center;">
+Google XML文書フォーマット スタイルガイド 日本語訳</h1><div style="text-align: center;">Version 1.0<br>Copyright Google 2008<br>（日本語訳 <a href="http://www.textdrop.net/">Takashi Sasai</a>）</div><br><br><h2>はじめに</h2>このドキュメントは、新しいXML文書フォーマットを設計するとき（また、既存のXML文書を拡張するとき（11.を参照））に使える一般的なガイドラインを提供する。文書フォーマットには通常、フォーマルな部分（DTDやスキーマ）と、普通の英語の文章で表現される部分がある。<br><br>ここに示すガイドラインは新しいXML文書を設計するときに適用するものであって、既に設計されたXML文書にまでさかのぼって強制するものではない。パブリックもしくはプライベートな文書フォーマットを設計するとき、このガイドラインを活用するのは望ましいが、このガイドラインを使ってグループの合意をコントロールしようとすべきではない。<br><br>このガイドラインは人手ではなく、マシンが生成してマシンが利用するXMLを設計するために作られたものだ。したがって、リッチテキストを表現するために作られたXHTMLやODFのようなフォーマットには、ここに挙げたルールを<i>適用することはできない</i>（XHTMLにはできるだけHTMLと同様のフォーマットを使うべきだ）。XHTMLなどのリッチテキストフォーマットだが、純粋にマシンで解釈可能な部分が埋め込まれたドキュメントもある。その場合、マシンで解釈可能な部分については、このスタイルガイドに従うべきだ。また、Protocol Bufferによって変換されたものや、その他のフォーマット形式を介して処理されたXML文書フォーマットには、これらのルールの影響は及ばない。<br><br>このガイドラインの多くには、なぜそうしたのか、その理由が簡潔に述べられている。理由についても時代遅れにならないよう、同じようにメンテナンスする予定だが、これらはガイドラインとは見なされない。<br><br>なお本ガイドラインでは、MUST、MUST NOT、SHOULD、SHOULD NOT、MAYという言葉を<a title="RFC 2119" href="http://www.ietf.org/rfc/rfc2119.txt" id="iecm">RFC 2119</a>と同じ意味で使っている。<br>&nbsp;<br><h2>1. 設計すべきかせざるべきか、それが問題だ<br></h2><ol><li>既存のXMLフォーマットをできるだけ再利用しよう。それが拡張可能なフォーマットであればなおさらだ。完全に新規のフォーマットを作るのは、注意深く検討してからにすべきだ。まずは<a title="Tim Bray's warnings" href="http://www.tbray.org/ongoing/When/200x/2006/01/08/No-New-XML-Languages" id="d3cy">Tim Brayの記事</a>を読もう。そして、あなたのフォーマットを広くレビューしてもらおう。できれば組織外部からもレビューしてもらおう。[<i>理由:</i> 新規の文書フォーマットはコストになる。ユーザはそれをレビューし、文書化し、学習しなくてはならないためだ。]<br><br></li><li>もし既存のフォーマットを再利用したり拡張しているなら、すでにある要素と属性を<i>うまく</i>利用しよう。それらが必須であればなおさらだ。
+まったく別の目的を持たせてはいけないが、セマンティックスがそのまま当てはまらなくも、何とか工夫して使えないか考えてみよう。
+
+そのフォーマットに必須の要素や属性があるのだが、自分のユースケースには適していない場合には、最後の手段として、何らかの固定文字列を値として使おう。
+[<i>理由:</i>&nbsp; 既存のマークアップを再利用するのはよいことが、誤用してはいけない。]<br><br></li><li>フォーマットを拡張するときには、既存のフォーマットにある暗黙のスタイルを使おう。このガイドラインと矛盾していても構わない。 [<i>理由: </i>一貫性のため。]<br></li></ol><br><h2>2. スキーマ (Schemas)</h2><ol><li>文書フォーマットはスキーマ言語を使って表現すべきだ (SHOULD)。 [<i>理由: </i>明確さのため、またマシンでチェックできるようにするため。]<br><br></li><li>スキーマ言語には<a title="RELAX NG" href="http://www.relaxng.org/" id="p1s7">RELAX NG</a> <a title="compact syntax" href="http://www.relaxng.org/compact-tutorial-20030326.html" id="ulci">compact syntax</a>を使うべきだ (SHOULD)。微調整のために、組み込み<a title="Schematron" href="http://www.schematron.com/" id="ymh-">スキマトロン (Schematron) </a>ルールをスキーマに追加してもよい (MAY)。 [<i>理由:</i>
+
+RELAX NGは最も柔軟性のあるスキーマ言語であり、設計上の制約というものがほとんどない。compact syntaxは非常に読みやすく学びやすく、必要に応じてXMLシンタックスに一対一に変換できる。スキマトロンを使うと、任意の要素間および属性間の制約をうまく扱うことができる。]<br><br></li><li>スキーマには<a title="&quot;Salami Slice&quot; style" href="http://www.xfront.com/GlobalVersusLocal.html#SecondDesign" id="r:fj">「Salami Slice（サラミスライス）」スタイル</a>（要素ごとに1つのルール）を使うべきだ (SHOULD)。もし簡潔でシンプルなものであれば、<a title="&quot;Russian Doll&quot; style" href="http://www.xfront.com/GlobalVersusLocal.html#FirstDesign" id="h14y">「Russian Doll（ロシア人形）」スタイル</a> （スキーマがドキュメントのようである）を使ってもよい (MAY) 。<a title="&quot;Venetian Blind&quot; style" href="http://www.xfront.com/GlobalVersusLocal.html#ThirdDesign" id="dr_g">「Venetian Blind（ベネチア風日よけ）」スタイル</a>（要素型ごとに1つのルール）はRELAX NGには適していないため、使うべきではない (SHOULD NOT)。<br><br></li><li>複雑な値の検証に役立つよう、正規表現を提供すべきだ (SHOULD)。<br><br></li><li>既存の製品、ツール、ユーザとの互換性のため、DTDやW3C XML Schemaを提供してもよい (MAY) [<i>理由:</i> 私たちは一度に世界全体を変えることはできないため。]<br></li></ol></div><div><br><h2>3. 名前空間 (Namespaces)</h2><ol><li>要素名は名前空間内に入れなければならない (MUST)。ただし、昔からある、名前空間を使っていない文書型を拡張する場合は、その限りではない。
+
+デフォルトの名前空間を使うべきだ (SHOULD)。 [<i>理由:</i> 名前空間のない文書は時代遅れだ。名前の集まりはすべて、どこかの名前空間に入れるべきだ。デフォルトの名前空間を使うと読みやすくなる。]<br><br></li>
+<li>別の文書型から引用されたり、別の文書型で使われることを意図して作られた場合を除いて、属性名を名前空間に入れるべきでない (SHOULD NOT)。 [<i>理由:</i> 名前空間に入っている属性名には、常にプレフィックスを付けなければならない。これは入力が大変だし、読みにくくなる。]<br><br>
+</li><li>名前空間名はHTTP URIである。名前空間名は <span style="font-family: Courier New;">http://example.com/</span><i style="font-family: Courier New;">whatever</i><span style="font-family: Courier New;">/</span><i><span style="font-family: Courier New;">year</span> という形式にすべきだ (SHOULD)。</i>ここで、<i>whatever</i> は文書型の名前に基づくユニークな値とし、<i>year</i>はその名前空間が作られた年とする。<i>year</i> の前に追加のURIパス部があってもよい。 [<i>理由:</i> 既存の規約のため。&nbsp; 年があるとコード名を再利用できる。]<br><br></li><li>特定の要素や属性のセマンティックスが互換性なく劇的に変わる場合を除いて、名前空間を変更してはならない (MUST NOT)。 [<i>理由:</i> 名前空間を変更すると、クライアントのコードすべてに変更が必要になる。]<br><br></li><li>名前空間のプレフィックスは短くすべきだ (SHOULD)（ただし、別のプロジェクトと衝突するおそれがあるほど、短くするべきではない）。1文字のプレフィックスを使ってはいけない (MUST NOT)。プレフィックスは小文字のASCII文字だけを含むべきだ (SHOULD)。 [<i>理由:</i> 入力のしやすさと、エンコーディング互換性の問題がないため。]</li></ol><br>
+
+<h2>4. 名前と列挙値</h2><b>注意: </b>ここで言う「名前」とは、要素名、属性名、列挙値を指す。<br><br><ol><li>すべての名前はlowerCamelCaseを使わなければならない (MUST)。つまり、小文字で始まり、以後、単語が登場するたび大文字で始める。 [<i>理由:</i> ひとつのスタイルを採用することで一貫性が生まれる。これは名前を参照するときに役立つ。キャピタリゼーションはよく知られており、改めて覚える必要がない。これはJavaのスタイルともマッチしており、その他の言語でも自動的に名前変換することでうまく扱える。]<br><br></li><li>名前はASCII文字と数字だけを含まなくてはならない (MUST)。
+[<i>理由:</i> 入力のしやすさと、エンコーディング互換性の問題がないため。]<br> <br></li><li>名前は25文字を超えるべきではない (SHOULD NOT)。これよりも長い名前は、簡潔で意味のある名前になるよう工夫して避けるべきだ (SHOULD)。ただし、名前を無理に収めようとすると曖昧になるなら、この制限を無視すべきだ (SHOULD)。 [<i>理由: </i>長い名前は使いにくいし、余計な処理能力が必要になる。]<br><br></li><li>公開されている標準的な略語は、それが十分広く知られているものであれば、名前の構成要素として使ってもよい (MAY)。その場限りの略語を使ってはいけない (MUST NOT)。camel-casingにおいて、頭字語は単語として扱わなければならない (MUST)。つまりinformationURIではなくinformationUriとする。 [<i>理由:</i>&nbsp; 特定のコミュニティにしか知られていない略語は、他の人がその文書フォーマットを使うときに理解できないことが多い（フルネームであれば理解できるのだが）。頭字語を単語として扱うと、単語境界がわかりやすくなる。] <br></li></ol><p><br></p><p>
+
+</p><h2>
+5. 要素 (Elements)</h2><ol><li>すべての要素は、空、文字コンテンツ、子要素のいずれかを含まなくてはならない (MUST)。混合コンテンツ（mixed content）を使ってはいけない (MUST NOT)。 [<i>理由:</i> たいていのXMLデータモデルは、混合コンテンツを適切に処理しておらず、要素の順序に依存している。例によって、テキストフォーマットはこのルールの範疇ではない。]<br><br></li><li>子要素の繰り返しをラップするだけのXML要素を使うべきではない (SHOULD NOT)。 [<i>理由:</i> これらはAtomで使われていないし、何も得られるものはない。]</li></ol>
+
+<p><br></p><h2>6. 属性 (Attributes)</h2><ol><li>文書フォーマットは開始タグにある属性の順序に依存してはいけない (MUST NOT)。 [<i>理由:</i> ほとんどのXMLパーサは順序を報告してくれない。また、XML Infosetの一部でもない。]<br><br></li><li>要素に属性をたくさん持たせすぎて、負荷をかけるべきではない (SHOULD NOT)（経験則として10以下とする）。その代わりに、子要素を使って、密接に関連する属性をカプセル化しよう。 [<i>理由:</i> このようにカプセル化することで、XMLが要素に提供しているビルトイン拡張性を維持しつつ、仕様が発展したときに前方互換性を提供するのに役立つ。]<br><br></li><li>改行が重要な意味を持つ値を保持するのに、属性を使ってはいけない (MUST NOT)。 [<i>理由:</i> 仕様に準拠したXMLパーサは、これら改行を空白に変換するため。]<br><br></li><li>文書フォーマットは属性値のまわりのシングルクォーテーションおよびダブルクォーテーションを許さなくてはならない (MUST)。 [<i>理由:</i>&nbsp; XMLパーサはその違いを報告してくれないため。]<br></li></ol>
+
+<p><br></p>
+<p>
+</p><h2>
+7. 値 (Values)</h2><ol><li>数値はすべて、10を基数とした、32ビット符号付き整数、64ビット符号付き整数、64ビットIEEE倍精度浮動小数のいずれかにすべきだ (SHOULD)。これらはそれぞれ、XML Schema型 <span style="font-family: Courier New;">xsd:int</span>、<span style="font-family: Courier New;">xsd:long</span>、<span style="font-family: Courier New;">xsd:double</span>に対応する。もし特殊なケースで必要があれば、<span style="font-family: Courier New;">xsd:integer</span>（精度に制限のない整数）値を使ってもよい (MAY)。 [<i>理由:</i> XML Schemaにはあまりにも多くの数値型があるため。ここでは妥当なサブセットを提示している。]&nbsp; <br><br></li><li>
+
+ブール値は使うべきではない (SHOULD NOT)（代わりに列挙を使おう）。もしブール値が必要であれば、XML Schema型のサブセットである<span style="font-family: Courier New;">xsd:boolean</span>を使い、<span style="font-family: Courier New;">true</span>もしくは<span style="font-family: Courier New;">false</span>で表現しなければならない (MUST)。もうひとつの<span style="font-family: Courier New;">xsd:boolean</span>値である<span style="font-family: Courier New;">1</span>と<span style="font-family: Courier New;">0</span>は使ってはいけない (MUST NOT)。 [<i>理由:</i> ブール値は拡張できないため。たとえこうしたとしても、パーサから数値を許すという柔軟性がなくなるわけではない。]<br><br></li><li>日付は<a title="RFC 3339" href="http://www.ietf.org/rfc/rfc3339.txt" id="sk98">RFC 3339</a>フォーマット、ISO 8601フォーマットとXML Schema型の<span style="font-family: Courier New;">xsd:dateTime</span>フォーマットのサブセットで表現すべきだ。ローカルタイムではなくUTCタイムを使うべきだ (SHOULD)。
+
+[<i>理由:</i> あまりにも多くの日付フォーマットやタイムゾーンがあるため。たとえローカルタイムに重要な情報が含まれているとわかっていてもこうすべきだ。]<br><br></li><li>文字コンテンツと属性値への埋め込み構文は使うべきでない (SHOULD NOT)。値に構文があるということは、主要な処理にXMLツールが使えないということだ。ただし、日付、URI、XPath表現といった構文は例外とする。 [<i>理由:</i> 特殊なパーサが必要になると、間違いが起こりやすい。ユーザはXMLパーサだけでXML文書を処理できるべきだ。]<br><br></li><li>値にある空白に注意しよう。XMLパーサは要素内の空白を取り除くが、属性内の改行を空白に変換する。アプリケーションフレームワークはさらに積極的に空白を取り除くかもしれない。あなたの文書フォーマットには、空白を取り除くためのルールを入れておくべきだ (SHOULD)。<br></li></ol>
+
+<p><br>
+</p>
+<p>
+</p><h2>8. キー-バリューペア（Key-value pairs）<br></h2><ol><li>
+単純なキー-バリューペアは、キーを名前に、バリューを<span style="font-family: Courier New;">value</span>属性を持つ空要素として表現すべきだ (SHOULD)。測定値の単位を示すために、<span style="font-family: Courier New;">value</span>属性を持つ要素に<span style="font-family: Courier New;">unit</span>属性を持たせてもよい (MAY)。物理的な測定単位には、<a title="SI system" href="http://en.wikipedia.org/wiki/International_System_of_Units" id="rhxg">SI system</a>を使うべきだ (SHOULD)。 [<i>理由:</i>
+
+単純さと設計の一貫性のため。属性に値を置くとユーザから見えなくなる。キーを表示せずにバリューだけを表示しても役に立たないためだ。]<br><br></li><li>もし取り得るキーの数が非常に大きかったり無限にあるなら、キー-バリューペアを、<span style="font-family: Courier New;">key</span>、<span style="font-family: Courier New;">value</span>および、オプションとして<span style="font-family: Courier New;">unit</span>や<span style="font-family: Courier New;">scheme</span>属性を持つひとつの汎用要素で表現してもよい (MAY)（ドメイン毎に区別して提供すること）。
+その場合には、読めばわかる説明を含んだキー一覧も提供すること（必ずしも同一ドキュメントである必要はない）。</li></ol><br>
+<h2>9. バイナリデータ</h2><p><b>注意: </b>バイナリデータをXML文書の一部に含めるべきか否かについて、厳格なルールはない。もしデータが大きすぎるなら、リンクにした方がよいだろう。</p><p><br></p><ol><li>XML文書にバイナリデータをそのまま直接入れてはいけない (MUST NOT)。Base64エンコーディングを使ってエンコードしなければならない (MUST) [<i>理由:</i> XMLは任意のバイナリデータを許していないため。]<br><br></li><li>
+
+Base64で必要とされた改行は省略してもよい (MAY) [<i>理由:</i> 改行は平文を簡潔にするために使われるが、XMLは実際のところ平文ではない。]<br><br></li><li>Base64フォーマットを使っていることがわかるよう、<span style="font-family: Courier New;">xs:base64Binary</span>を値として指定した<span style="font-family: Courier New;">xsi:type</span>属性を要素に付与してもよい (MAY)。 [理由: 不明確なデータの塊にはデコード命令を付与すべきだ。]<br><br></li></ol>
+<h2>10. 処理命令 (Processing instructions)</h2><ol><li>純粋にローカルな処理の決まりごとを指定する場合を除いて、新たに処理命令を作ってはいけない (MUST NOT)。これは完全に避けるべきだ (SHOULD)。既に標準化されている処理命令は使ってもよい (MAY)。 [<i>理由:</i> 処理命令はXMLデータモデルに不自然に取り入れられており、常に要素で置き換え可能だ。これらは主に後方互換性を壊すのを避けるためにある。]</li></ol><p>&nbsp;</p>
+
+<p>
+</p><p>&nbsp;</p><h2>11. XML文書インスタンスの表現<br></h2><p><b>注意:</b>&nbsp; プログラマは、プログラムが生成するインスタンスのフォーマットをコントロールできないことが多い（例えば、XMLシリアライゼーションライブラリが使われるため）。したがって、以下に挙げるポイントはガイドラインにすぎない。<i>いかなる場合も</i>、XMLパーサがこのガイドラインに従っていることを当てにするべきではない。手作業でハックしようとせず、標準的なXMLパーサを使おう。<br></p><p><br></p><ol><li>文字エンコーディングにはUTF-8を使うべきだ (SHOULD)。例外は、どうしてもやむを得ない場合に限るべきだ。 [<i>理由:</i> UTF-8は世界中で広く使われているため。]<br><br></li><li>名前空間は可能な限り、文書のルート要素で宣言すべきだ (SHOULD)。 [<i>理由: </i>明確さと一貫性のため。]<br><br></li><li>名前空間URIのプレフィックスへの対応付けは、文書全体で一貫しているべきであり (SHOULD)、設計ドキュメントでも同じものを使うべきだ (SHOULD)。 [<i>理由: </i>明確さと一貫性のため。]<br><br></li><li>標準的な名前空間には、（XHTMLのための）html:（Dublin Coreメタデータのための）dc:や（XML Schemaのための）xs:といった、よく知られたプレフィックスを使うべきだ。 [<i>理由:</i> 読みやすさのため。]<br><br></li><li>タグ内には冗長な空白を使うべきではない (SHOULD NOT)。開始タグの各属性の前には、空白を1つ入れよう。もし開始タグが長すぎるなら、空白を改行に置き換えてもよい (MAY) [<i>理由:</i> 一貫性と簡潔さのため。]<br><br></li><li>空要素は空タグ、もしくは開始タグに続く終了タグで表現してもよい (MAY)。アプリケーションはこれら2つを区別すべきではない。 [<i>理由:</i> XMLパーサはこれらを区別しないため。]<br><br></li><li>子要素にスペース2つのインデントを入れることで、きれいに印字できるようにしてもよい (MAY)。文字コンテンツを含む要素は折り返すべきではない (SHOULD NOT)。長い開始タグは、最後を除く属性値の後ろに改行を入れて（おそらく余分なインデントを付けて）分割してもよい (MAY)。 [<i>理由:</i> 私たちが普段使っているスタイルと全体的に互換性をとるため。文字コンテンツで折り返すと、その値に影響を及ぼすため。]<br><br></li><li>属性値はクォーテーションマークもしくはアポストロフィで囲んでもよい (MAY)。
+仕様として、これらの利用を必須としたり禁止してはいけない (MUST NOT)。各種クォートをエスケープするのに、<span style="font-family: Courier New;">&amp;apos;</span>や<span style="font-family: Courier New;">&amp;quot;</span>を使ってもよい。 [<i>理由:</i> XMLパーサはこれらを区別しないため。]<br><br>
+
+</li><li>実データを運ぶためにコメントを使ってはいけない (MUST NOT)。XMLにTODOを手入力するのにコメントを使ってもよい (MAY)。外部に送信される文書には、コメントを入れるべきではない (SHOULD NOT)。 [<i>理由:&nbsp; </i>コメントはパーサによって捨てられることが多いため。]<br><br></li><li>それでもコメントを使うなら、文書の先頭および子要素を含む要素だけにすべきだ (SHOULD)。もしコメントをきれいに印字する必要があるなら、要素と同様だが行を適切に折り返すこと。文字コンテンツを含む要素にコメントを入れるべきではない (SHOULD NOT)。 [<i>理由:&nbsp; </i>コメント内やその周囲に空白があると読みやすいが、文字コンテンツにコメントを埋め込むと、空白の有無によって混乱を招くおそれがある。]<br><br></li><li>コメントを書くときには、<span style="font-family: Courier New;">&lt;!--</span>の後と<span style="font-family: Courier New;">--&gt;</span>の前に空白を入れるべきだ (SHOULD)。 [<i>理由:</i> 読みやすさのため。]<br><br></li><li>CDATAセクションを使ってもよい (MAY)。これらは<span style="font-family: Courier New;">&amp;amp;</span>や<span style="font-family: Courier New;">&amp;lt;</span>を使うのと等価だ。仕様として、CDATAセクションの利用を必須としたり禁止してはいけない (MUST NOT)。 [<i>理由:</i> CDATAとテキストの区別や組み合わせを報告するXMLパーサはほとんどなく、常に単一のオブジェクトとして報告するものが多いため。]<br><br></li><li><span style="font-family: Courier New;">&amp;amp;</span>、<span style="font-family: Courier New;">&amp;lt;</span>、<span style="font-family: Courier New;">&amp;gt;</span>、<span style="font-family: Courier New;">&amp;quot;</span>、<span style="font-family: Courier New;">&amp;apos;</span>といったXML標準のエンティティ参照以外のエンティティ参照を使ってはいけない (MUST NOT)。文字参照は使ってもよいが (MAY)、文字エンコーディングがUTF-8のときには、実際の文字を使う方が望ましい。テキストフォーマットは通常、このルールの適用が免除される。<br></li></ol>
+
+<br><p>&nbsp;</p><p>
+</p>
+<p>
+</p><br><br><h2>
+12. 要素 対 属性
+</h2>
+<p>
+<b>注意:</b>&nbsp; いつ属性を使うべきで、いつ要素を使うべきかを決めるための厳格なルールは存在しない。以下には、設計者が考慮すべき検討項目をいくつか挙げる。理由の項目はない。
+</p>
+<h3>
+12.1. 一般論<br>
+</h3>
+
+<ol>
+<li>
+<p>
+要素に比べて、属性には制限がある。そして、どんな設計にも要素は必ず含まれる。したがって、すべてを要素として設計するのが最も単純だ。ただし、これがベストとは限らない。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+木構造のデータモデルの場合、通常、要素は内部的にノードとして表現される。属性を表現するのに使う文字列と比べて、ノードの方がメモリをたくさん使用する。ノードはアプリケーション固有のクラスになることがある。そして、多くの言語では、こうしたクラスを表現するのにメモリを必要とする。
+</p>
+<p>
+<br>
+
+</p>
+</li>
+<li>
+<p>
+ストリームの場合、要素は一度に1つ処理される（おそらく1つずつだが、これは使っているXMLパーサに依存する）。それに対して、要素の属性およびその値は、すべて一度に報告される。これはメモリに負担をかけることになる。属性値が非常に長いと、なおさらだ。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+要素内容と属性値はいずれも、適切にエスケープする必要がある。したがって、エスケープを設計の判断材料とすべきではない。
+</p>
+<p>
+<br>
+</p>
+
+</li>
+<li>
+<p>
+プログラミング言語やライブラリによっては、要素を処理する方が簡単なものもあれば、属性を処理する方が簡単なものもある。処理の簡単さを判断基準にするのには注意しよう。具体的に言うと、XSLTはどちらも同等の簡単さで処理できる。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+ユーザに見せるべきデータであれば、要素を使うことを検討しよう。見せるべきものでなければ、属性を使うことを検討しよう。（このルールはなぜか破られることが多い。）
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+既存のスキーマを拡張しているなら、そのスキーマでやっているのと同じようにしよう。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+賢いスキーマ言語（ここではRELAX NGとスキマトロンを意味している）では、要素と属性を対称的に扱っている。DTDとXML Schemaのような古くて未熟な<a href="http://www.w3.org/TR/2004/REC-xmlschema-0-20041028/" id="h2c3" title="XML Schema"> </a>スキーマ言語では、要素のサポートの方が手厚い傾向がある。
+
+</p>
+</li>
+</ol>
+<p>
+</p>
+<h3>
+12.2 要素の使用<br>
+</h3>
+<ol>
+<li>
+<p>
+データモデルにおいて、データが1回以上出現する可能性があるなら、<span style="font-family: Courier New;">foo1, foo2, foo3</span> ...といった名前の属性ではなく、要素を使うこと。
+</p>
+
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+独立したオブジェクトとして見なせる情報を表現していて、その情報に別の情報との親子関係があるときには、要素を使うこと。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+厳密な型付けや関係性のルールをデータに組み込むときには、要素を使うこと。
+</p>
+<p>
+
+<br>
+</p>
+</li>
+<li>
+<p>
+2つのデータに順序関係があるなら、要素を使うこと。本質的に、属性には順序がない。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+データ自身にサブ構造がある、もしくはその可能性があるなら、要素を使うこと。サブ構造を属性にしてしまうと、必ず面倒なことになる。同様に、データが大きなデータの構成要素になるなら、それを要素として入れるようにしよう。
+</p>
+
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+先ほどのルールには例外がある。空白で分離された複数のトークンは、属性に入れても問題ない。セパレータは何でもよいが、現在のところ、スキーマ言語のバリデータは空白しか扱えない。したがって、空白にするのがベストだ。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+データが複数行にわたるなら、要素を使おう。XMLパーサは属性値にある改行を空白に変えてしまうためだ。
+
+<br><br></p></li><li>データが非常に巨大なら、要素を使おう。そうすれば、そのコンテンツをストリームとして扱うことができる。<br><br></li>
+<li>
+<p>
+データが自然言語なら、要素に入れよう。そうすれば、使われている言語を示すのに<span style="font-family: Courier New;">xml:lang</span>属性が利用できる。日本語のような自然言語の場合には、子要素による<a href="http://www.w3.org/TR/2001/REC-ruby-20010531" id="pa2f" title="annotations">アノテーション</a>を使うことがある。ヘブライ語やアラビア語のような右から左に書く言語にも<a href="http://www.w3.org/TR/2001/REC-ruby-20010531" id="ehyv" title="bidirectionality">双方向性（bidirectionality）</a> をうまく管理するための子要素が必要になる。
+</p>
+
+<p>
+</p>
+</li>
+</ol>
+<h3>
+12.3 属性の利用<br>
+</h3>
+<ol>
+<li>
+<p>
+データがカタログやコードのリストなど、管理された語彙に由来しているなら、できるだけ属性に入れよう。例えば、言語タグ、通貨コード、医療診断コードなどは、属性として扱うのがベストだ。
+</p>
+<p>
+<br>
+
+</p>
+</li>
+<li>
+<p>
+データが実際には別のデータのメタデータであるなら（例えば、主たるデータが提供するクラスや役割を表現していたり、その処理方法を指定しているような場合）、できるだけ属性に入れよう。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+具体的に言うと、データが別のデータのIDそのもの、もしくはIDの参照であるなら、そのID（識別子）に相当するものを属性に入れよう。IDであれば、<span style="font-family: Courier New;">xml:id</span>という属性名を使おう。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+ハイパーテキストの参照は、慣例として<span style="font-family: Courier New;">href</span>属性を使うこと。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+
+<p>
+上書きしない限り、データがその要素と子孫要素すべてに適用されるのであれば、属性に入れるのが通例だ。よく知られている例として、<span style="font-family: Courier New;">xml:lang</span>、<span style="font-family: Courier New;">xml:space</span>、<span style="font-family: Courier New;">xml:base</span>、名前空間宣言がある。
+</p>
+<p>
+<br>
+</p>
+</li>
+<li>
+<p>
+
+簡潔さが本当に<i>最重要</i>であれば、属性を使おう。ただし、代わりに<span style="font-family: Courier New;">gzip</span>圧縮が使えないか検討しよう。反復構造の多い文書では、これは非常にうまくいく。</p></li>
+</ol></div><br><div><div><div><div><div>
+<br><h2>13. 終わりに
+</h2>
+<p>
+</p><p>
+常識を働かせよう、そして、<i>一貫性</i>を持たせよう。拡張性を持つよう設計しよう。いつか必要になる<i>はずだ</i>。 [<i>理由:</i> 長く辛い経験から。]<br></p><p><br> </p>
+
+<p>
+XMLフォーマットを設計するときには、数分かけて他のフォーマットを調べて、スタイルを決めよう。スタイルガイドラインがあるおかげで、どうやって話すかではなく、何を話すかに集中できるようになる。<br></p><p>
+<br>
+もし、こうしたルールに奴隷のように従うことで、未熟で無原則で実に嫌らしい設計上の混乱をきたすようなら、これらのルールの<i>いずれか、あるいは、すべて</i>を破っても構わない（たとえ、それがMUSTであっても）。とりわけ、属性と子要素がでたらめに混ざっていると、従うのも使うのも難しい。とはいえ、「単純なもの」と「複雑なもの」、「メタデータ」と「データ」のように、はっきり異なる2つのグループに分類できるとき、両方を使うのが理にかなっていることが多いのだが。
+</p>
+<div><p>
+<br>
+新米は必ずこう尋ねる。
+</p>
+
+<p>
+&nbsp;&nbsp;&nbsp; 「要素か、それとも、属性か、
+</p>
+<p>
+&nbsp;&nbsp;&nbsp; どちらにすべきでしょう？」
+</p>
+<p>
+&nbsp;&nbsp;&nbsp; 知ったかぶりは獅子のように吠え、
+</p>
+<p>
+&nbsp;&nbsp;&nbsp; 賢いハッカーは虎のように微笑む。
+</p>
+<p>
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- <a href="http://en.wikipedia.org/wiki/Waka_%28poetry%29#Tanka" id="s3k3" title="tanka">短歌（tanka）</a>、もしくは長い俳句（extended haiku）
+
+</p>
+</div>
+<p>
+<br>
+</p>
+<br>[TODO: スキーマレジストリが用意できたら、そこへのリンクを追加する]<br><br></div><br></div><br></div></div></div><br>
+<br clear="all"/>
+</div>
